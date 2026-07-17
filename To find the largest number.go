@@ -1,13 +1,29 @@
-//Every Go program starts with a package declaration.
-main is a special package that tells Go this is an executable program
-package main 
+package main
 
-//provides functions for printing output to the console
 import "fmt"
 
 func main() {
-	// Sample numbers
-	numbers := []int{10, 5, 8, 20, 3}
+	var n int
+
+	// Ask the user how many numbers they want to enter
+	fmt.Print("How many numbers do you want to enter? ")
+	fmt.Scan(&n)
+
+	// Check if the input is valid
+	if n <= 0 {
+		fmt.Println("Please enter a valid number of elements.")
+		return
+	}
+
+	// Create a slice to store the numbers
+	numbers := make([]int, n)
+
+	// Take input from the user
+	fmt.Println("Enter the numbers:")
+	for i := 0; i < n; i++ {
+		fmt.Printf("Number %d: ", i+1)
+		fmt.Scan(&numbers[i])
+	}
 
 	// Assume the first number is the largest
 	largest := numbers[0]
@@ -19,6 +35,7 @@ func main() {
 		}
 	}
 
-	fmt.Println("Numbers:", numbers)
+	// Display the result
+	fmt.Println("\nNumbers entered:", numbers)
 	fmt.Println("Largest number:", largest)
 }
