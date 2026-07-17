@@ -52,9 +52,10 @@ func checkPasswordStrength(password string) string {
 }
 
 func main() {
+	var password string
 
-	// Change this password to test different inputs
-	password := "arllinwilson!@45"
+	fmt.Print("Enter your password: ")
+	fmt.Scanln(&password)
 
 	fmt.Println("Password:", password)
 	fmt.Println("Password Strength:", checkPasswordStrength(password))
